@@ -7,18 +7,18 @@ function Photos() {
   // Get the allPhotos array from context
   // map over it, creating <Image /> elements of the component we just made
   // <Image key={???} img={<full image object here>} className={getClass(<index of image>)} />
-  const context = useContext(Context)
-  console.log(context);
+  const {pictures} = useContext(Context)
   
-  const pictures = context.pictures.map((photo, i) => <Image 
+  const pictureArray = pictures.map((photo, i) =>
+                      <Image 
                         key={photo.id}
-                        source={photo.url}
+                        source={photo}
                         className={getClass(i)}
                       />)
 
   return (
     <main className="photos">
-      {pictures}
+      {pictureArray}
     </main>
   )
 }
